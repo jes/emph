@@ -31,3 +31,32 @@ while (<STDIN>) {
     print "$_\n";
     print color 'reset' if $colour;
 }
+
+__END__
+
+=head1 NAME
+
+emph - emphasise matching lines with colour
+
+=head1 SYNOPSIS
+
+ emph PATTERN...
+
+=head1 DESCRIPTION
+
+This program operates similarly to grep(1).  It takes input from stdin,
+and colours any lines that match a regex described by one of the arguments.
+Multiple patterns may be specified, and each one will receive a different
+colour (well, there are 12 colours; they repeat after that).
+
+Patterns specified sooner will match sooner and prevent matching of later
+patterns.  For example:
+
+  $ emph foo bar < file
+
+Lines containing C<foo> will be red, and lines containing C<bar> but NOT
+C<foo> will be green, and other lines will not be coloured.
+
+=head1 AUTHOR
+
+James Stanley <james@incoherency.co.uk>

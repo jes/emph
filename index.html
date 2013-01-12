@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>emph by jes</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>emph</h1>
+        <p>Emphasise matching lines with colour.</p>
+
+        <p class="view"><a href="https://github.com/jes/emph">View the Project on GitHub <small>jes/emph</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jes/emph/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jes/emph/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jes/emph">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>NAME</h2>
+
+<p>emph - emphasise matching lines with colour</p>
+
+<h2>SYNOPSIS</h2>
+
+<pre><code>emph PATTERN...
+</code></pre>
+
+<h2>DESCRIPTION</h2>
+
+<p>This program operates similarly to grep(1). It takes input from stdin,
+and colours any lines that match a regex described by one of the
+arguments. Multiple patterns may be specified, and each one will receive
+a different colour (well, there are 12 colours; they repeat after that).</p>
+
+<p>Patterns specified sooner will match sooner and prevent matching of
+later patterns. For example:</p>
+
+<pre><code>$ emph foo bar &lt; file
+</code></pre>
+
+<p>Lines containing "foo" will be red, and lines containing "bar" but NOT
+"foo" will be green, and other lines will not be coloured.</p>
+
+<h2>AUTHOR</h2>
+
+<p>James Stanley <a href="mailto:james@incoherency.co.uk">james@incoherency.co.uk</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jes">jes</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

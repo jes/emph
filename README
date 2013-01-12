@@ -1,0 +1,23 @@
+NAME
+    emph - emphasise matching lines with colour
+
+SYNOPSIS
+     emph PATTERN...
+
+DESCRIPTION
+    This program operates similarly to grep(1). It takes input from stdin,
+    and colours any lines that match a regex described by one of the
+    arguments. Multiple patterns may be specified, and each one will receive
+    a different colour (well, there are 12 colours; they repeat after that).
+
+    Patterns specified sooner will match sooner and prevent matching of
+    later patterns. For example:
+
+      $ emph foo bar < file
+
+    Lines containing "foo" will be red, and lines containing "bar" but NOT
+    "foo" will be green, and other lines will not be coloured.
+
+AUTHOR
+    James Stanley <james@incoherency.co.uk>
+

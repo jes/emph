@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+# emphasise lines matching regexes
+# jes 2012
+
+use strict;
+use warnings;
+
+use Term::ANSIColor;
+
+@ARGV or die "Usage: emph PATTERN...\n";
+
+while (<STDIN>) {
+    chomp;
+
+    my @colours = qw(red green yellow blue magenta cyan bright_red bright_green
+        bright_yellow bright_blue bright_magenta bright_cyan);
+    my $colouridx = 0;
+
+    my $colour;
+
+    PATTERN:
+    foreach my $pattern (@ARGV) {
+        if (/$pattern/) {
+            $colour = $colours[$colouridx % @colours];
+            last PATTERN;
+        }
+        $colouridx++;
+    }
+
+    print color $colour if $colour;
+    print "$_\n";
+    print color 'reset' if $colour;
+}

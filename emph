@@ -28,8 +28,9 @@ while (<STDIN>) {
     }
 
     print color $colour if $colour;
-    print "$_\n";
+    print $_;
     print color 'reset' if $colour;
+    print "\n";
 }
 
 __END__

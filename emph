@@ -5,9 +5,18 @@
 use strict;
 use warnings;
 
+use Getopt::Long;
 use Term::ANSIColor;
 
-@ARGV or die "Usage: emph PATTERN...\n";
+my $usage = 'emph [-i] PATTERN...';
+
+my $case_insensitive;
+
+GetOptions(
+    'i' => \$case_insensitive,
+) or die "Usage: $usage\n";
+
+@ARGV or die "Usage: $usage\n";
 
 while (<STDIN>) {
     chomp;
@@ -20,7 +29,7 @@ while (<STDIN>) {
 
     PATTERN:
     foreach my $pattern (@ARGV) {
-        if (/$pattern/) {
+        if (/$pattern/ || ($case_insensitive && /$pattern/i)) {
             $colour = $colours[$colouridx % @colours];
             last PATTERN;
         }
